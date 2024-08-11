@@ -1,18 +1,70 @@
 <ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1" href="/tabs/tab1">
-      <ion-icon aria-hidden="true" name="triangle"></ion-icon>
-      <ion-label>Tab 1</ion-label>
+  <ion-tab-bar slot="bottom" class="h-16">
+    <ion-tab-button (click)="changeTab('chats')" tab="chats" href="/tabs/chats">
+      <div
+        class="py-1.5 mb-1 px-5 rounded-full grid place-items-center"
+        [ngClass]="selectedTab() === 'chats' ? 'bg-blue-100' : 'bg-white'"
+      >
+        <ion-icon
+          class="w-5 h-5"
+          aria-hidden="true"
+          [name]="selectedTab() === 'chats' ? 'chatbox-ellipses' : 'chatbox-ellipses-outline'"
+        ></ion-icon>
+      </div>
+      <ion-label>Chats</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2" href="/tabs/tab2">
-      <ion-icon aria-hidden="true" name="ellipse"></ion-icon>
-      <ion-label>Tab 2</ion-label>
+    <ion-tab-button
+      (click)="changeTab('updates')"
+      tab="updates"
+      href="/tabs/updates"
+    >
+      <div
+        class="py-1.5 mb-1 px-5 rounded-full grid place-items-center"
+        [ngClass]="selectedTab() === 'updates' ? 'bg-blue-100' : 'bg-white'"
+      >
+        <ion-icon
+          class="w-5 h-5"
+          aria-hidden="true"
+          [name]="selectedTab() === 'updates' ? 'chatbubbles' : 'chatbubbles-outline'"
+        ></ion-icon>
+      </div>
+
+      <ion-label>Updates</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3" href="/tabs/tab3">
-      <ion-icon aria-hidden="true" name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
+    <ion-tab-button
+      (click)="changeTab('communities')"
+      tab="communities"
+      href="/tabs/communities"
+    >
+      <div
+        class="py-1.5 mb-1 px-5 rounded-full grid place-items-center"
+        [ngClass]="selectedTab() === 'communities' ? 'bg-blue-100' : 'bg-white'"
+      >
+        <ion-icon
+          class="w-5 h-5"
+          aria-hidden="true"
+          [name]="selectedTab() === 'communities' ? 'people' : 'people-outline'"
+        ></ion-icon>
+      </div>
+
+      <ion-label>Communities</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="changeTab('calls')" tab="calls" href="/tabs/calls">
+      <div
+        class="py-1.5 mb-1 px-5 rounded-full grid place-items-center"
+        [ngClass]="selectedTab() === 'calls' ? 'bg-blue-100' : 'bg-white'"
+      >
+        <ion-icon
+          class="w-5 h-5"
+          aria-hidden="true"
+          [name]="selectedTab() === 'calls' ? 'call' : 'call-outline'"
+        ></ion-icon>
+      </div>
+
+      <ion-label>Calls</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

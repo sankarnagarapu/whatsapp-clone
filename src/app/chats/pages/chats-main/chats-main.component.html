@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <app-chats-header-options></app-chats-header-options>
+  </ion-toolbar>
+  <ion-toolbar>
+    <app-chats-header-search></app-chats-header-search>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+    <app-chat-contact-card></app-chat-contact-card>
+  </div>
+  <ion-fab class="absolute bottom-10 right-5">
+    <ion-fab-button (click)="openNewChat($event)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal
+    [isOpen]="isNewChatOpen()"
+    (didDismiss)="isNewChatOpen.set(false)"
+    [enterAnimation]="enterAnimation"
+    [leaveAnimation]="leaveAnimation"
+  >
+    <ng-template>
+      <app-new-chat-contacts
+        [(isNewChatOpen)]="isNewChatOpen"
+      ></app-new-chat-contacts>
+    </ng-template>
+  </ion-modal>
+</ion-content>

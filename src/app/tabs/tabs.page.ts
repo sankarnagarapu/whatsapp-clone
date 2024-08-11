@@ -1,19 +1,49 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
-import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
+import { NgClass } from '@angular/common';
+import { Component, EnvironmentInjector, inject, signal } from '@angular/core';
+import {
+  IonTabs,
+  IonTabBar,
+  IonTabButton,
+  IonIcon,
+  IonLabel,
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { triangle, ellipse, square } from 'ionicons/icons';
+import {
+  chatboxEllipsesOutline,
+  chatboxEllipses,
+  callOutline,
+  call,
+  people,
+  peopleOutline,
+  chatbubbles,
+  chatbubblesOutline,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],
   standalone: true,
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, NgClass],
 })
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
+  selectedTab = signal<'chats' | 'updates' | 'calls' | 'communities'>('calls');
 
   constructor() {
-    addIcons({ triangle, ellipse, square });
+    addIcons({
+      chatboxEllipsesOutline,
+      chatboxEllipses,
+      callOutline,
+      call,
+      people,
+      peopleOutline,
+      chatbubbles,
+      chatbubblesOutline,
+    });
+  }
+
+  changeTab(tab: 'chats' | 'updates' | 'calls' | 'communities') {
+    this.selectedTab.set(tab);
   }
 }
