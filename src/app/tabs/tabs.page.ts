@@ -28,7 +28,7 @@ import {
 })
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
-  selectedTab = signal<'chats' | 'updates' | 'calls' | 'communities'>('calls');
+  selectedTab = signal<'chats' | 'updates' | 'calls' | 'communities'>('chats');
 
   constructor() {
     addIcons({

@@ -1,6 +1,9 @@
-<div class="flex items-center justify-between p-4">
+<div class="flex items-center justify-between p-4 min-h-[76px]">
+  @if(isSearching()){
+  <ion-searchbar placeholder="Search contacts" (ionInput)="search($event.target.value)"></ion-searchbar>
+  }@else {
   <div class="flex items-center gap-4">
-    <div>
+    <div (click)="isNewChatOpen.set(false)">
       <ion-icon name="arrow-back-outline" class="w-5 h-5 p-2 pl-0"></ion-icon>
     </div>
     <div>
@@ -10,8 +13,9 @@
   </div>
   <div>
     <div class="flex items-center gap-4 text-black">
-      <ion-icon name="search" class="w-5 h-5 p-2"></ion-icon>
+      <ion-icon name="search" class="w-5 h-5 p-2" (click)="isSearching.set(true)"></ion-icon>
       <ion-icon name="ellipsis-vertical" class="w-5 h-5 p-2 pr-0"></ion-icon>
     </div>
   </div>
+  }
 </div>

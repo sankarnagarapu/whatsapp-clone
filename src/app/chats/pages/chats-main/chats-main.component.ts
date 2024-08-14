@@ -8,6 +8,7 @@ import {
   IonFab,
   IonIcon,
   IonModal,
+  ModalController,
 } from '@ionic/angular/standalone';
 import { ChatsHeaderOptionsComponent } from '../../components/chats-header-options/chats-header-options.component';
 import { ChatsHeaderSearchComponent } from '../../components/chats-header-search/chats-header-search.component';
@@ -37,10 +38,17 @@ import { ModalAnimationService } from 'src/app/services/modal-animation.service'
   ],
 })
 export class ChatsMainComponent implements OnInit {
+  async openModal($event: MouseEvent) {
+    const modal = await this.modalCtrl.create({
+      component: NewChatContactsComponent,
+    });
+    await modal.present();
+  }
 
   isNewChatOpen = signal(false);
 
   animationCtrl = inject(AnimationController);
+  modalCtrl = inject(ModalController);
   modalAnimation = inject(ModalAnimationService);
 
   enterAnimation = (baseEl: HTMLElement) =>

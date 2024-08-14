@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.sankarxace.whatsapp;
 
 import com.getcapacitor.BridgeActivity;
 

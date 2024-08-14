@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.sankarxace.whatsapp',
   appName: 'whatsapp-clone',
   webDir: 'www/browser'
 };

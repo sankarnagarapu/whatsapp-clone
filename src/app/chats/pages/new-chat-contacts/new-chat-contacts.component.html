@@ -1,6 +1,32 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <app-new-chat-header></app-new-chat-header>
+    <app-new-chat-header
+      [contacts]="contacts()"
+      [(isNewChatOpen)]="isNewChatOpen"
+    ></app-new-chat-header>
   </ion-toolbar>
 </ion-header>
-<ion-content> </ion-content>
+<ion-content class="ion-padding">
+  @for (contact of contacts() | limit:limit(); track contact.contactId) {
+  <div class="flex items-center gap-4 my-4">
+    @if(contact?.image?.base64String){ @let image =
+    contact?.image?.base64String;
+    <ion-img
+      class="w-12 h-12 rounded-full border overflow-hidden"
+      [src]="image"
+    ></ion-img>
+    } @else {
+    <ion-icon name="person-circle" class="w-12 h-12 text-gray-300"></ion-icon>
+    } @let name = contact.name;
+    <ion-label class="text-gray-600">{{
+      name?.display || name?.given || contact.phones?.[0]?.number
+    }}</ion-label>
+    <ion-label class="ml-auto capitalize mr-4 text-blue-500">invite</ion-label>
+  </div>
+  }
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+    ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

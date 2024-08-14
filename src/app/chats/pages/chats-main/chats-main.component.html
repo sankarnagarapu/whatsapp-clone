@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div>
+  <div (click)="openModal($event)">
     <app-chat-contact-card></app-chat-contact-card>
   </div>
   <ion-fab class="absolute bottom-10 right-5">
@@ -24,7 +24,7 @@
     [leaveAnimation]="leaveAnimation"
   >
     <ng-template>
-      <app-new-chat-contacts
+      <app-new-chat-contacts class="ion-page"
         [(isNewChatOpen)]="isNewChatOpen"
       ></app-new-chat-contacts>
     </ng-template>
