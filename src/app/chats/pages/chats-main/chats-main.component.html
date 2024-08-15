@@ -1,8 +1,6 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar appAllowOverflow>
     <app-chats-header-options></app-chats-header-options>
-  </ion-toolbar>
-  <ion-toolbar>
     <app-chats-header-search></app-chats-header-search>
   </ion-toolbar>
 </ion-header>
@@ -24,7 +22,8 @@
     [leaveAnimation]="leaveAnimation"
   >
     <ng-template>
-      <app-new-chat-contacts class="ion-page"
+      <app-new-chat-contacts
+        class="ion-page"
         [(isNewChatOpen)]="isNewChatOpen"
       ></app-new-chat-contacts>
     </ng-template>

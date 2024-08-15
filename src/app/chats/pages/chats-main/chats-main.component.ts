@@ -17,6 +17,7 @@ import { addIcons } from 'ionicons';
 import { add } from 'ionicons/icons';
 import { NewChatContactsComponent } from '../new-chat-contacts/new-chat-contacts.component';
 import { ModalAnimationService } from 'src/app/services/modal-animation.service';
+import { AllowOverflowDirective } from 'src/app/directives/allow-overflow.directive';
 
 @Component({
   selector: 'app-chats-main',
@@ -35,6 +36,7 @@ import { ModalAnimationService } from 'src/app/services/modal-animation.service'
     ChatsHeaderSearchComponent,
     ChatContactCardComponent,
     NewChatContactsComponent,
+    AllowOverflowDirective,
   ],
 })
 export class ChatsMainComponent implements OnInit {

@@ -42,3 +42,11 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
 
+ion-toolbar {
+  contain: none;
+}
+
+.toolbar-container {
+  overflow: visible !important;
+  contain: none !important;
+}

@@ -1,12 +1,64 @@
 <div class="p-4 flex justify-between items-center">
   <div>
-    <ion-label class="text-2xl text-blue-500">Whatsapp</ion-label>
+    <ion-label class="text-2xl text-blue-500">WhatsApp</ion-label>
   </div>
   <div class="h-full">
     <div class="flex items-center gap-4 text-black">
-      <ion-icon name="qr-code" class="w-5 h-5 p-2"></ion-icon>
-      <ion-icon name="camera-outline" class="w-5 h-5 p-2"></ion-icon>
-      <ion-icon name="ellipsis-vertical" class="w-5 h-5 p-2 pr-0"></ion-icon>
+      <div class="">
+        <ion-icon name="qr-code" class="w-5 h-5 p-2"></ion-icon>
+      </div>
+      <div class="">
+        <ion-icon name="camera-outline" class="w-5 h-5 p-2"></ion-icon>
+      </div>
+      <div class="relative" (click)="openMenu($event)">
+        <ion-icon name="ellipsis-vertical" class="w-5 h-5 p-2 pr-0"></ion-icon>
+
+        <div
+          [ngClass]="
+            isMenuOpen()
+              ? 'ease-out duration-100 opacity-100 scale-100'
+              : 'ease-in duration-75 opacity-0 scale-95'
+          "
+          class="transition transform absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="menu-button"
+          tabindex="-1"
+        >
+          <div class="py-4 text-gray-800" role="none">
+            <ion-label
+              class="block px-4 py-3"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-0"
+              >Account settings</ion-label
+            >
+            <ion-label
+              class="block px-4 py-3"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-1"
+              >Support</ion-label
+            >
+            <ion-label
+              class="block px-4 py-3"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-2"
+              >License</ion-label
+            >
+
+            <ion-label
+              class="block w-full px-4 py-3 text-left"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-3"
+            >
+              Sign out
+            </ion-label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
